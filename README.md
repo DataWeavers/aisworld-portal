@@ -1,72 +1,66 @@
-# AISWORLD Digest Portal
+# About ISC Board
 
-A static portal that clusters posts from the AISWORLD mailing list into
-topic categories (Calls for Papers, Conferences & Workshops, Journal /
-Special Issues, Jobs & Recruiting, PhD & Funding, General Discussion),
-de-duplicates reposts of the same announcement, and links out to the full
-message on the listserv archive.
+## Who made this
 
-It has two parts:
+Arvin Mesgari — a short line about who you are and why you built this
+(e.g. an IS researcher/practitioner who wanted an easier way to scan the
+AISWORLD mailing list). Add a contact link if you'd like.
 
-- `public/` — the site itself. `index.html` reads `data.json` and renders
-  the feed. This is the only folder your host needs to serve.
-- `scripts/fetch-feed.mjs` — a Node script that pulls the AISWORLD RSS feed,
-  classifies each post, merges reposts, and rewrites `public/data.json`.
-  This has to run **server-side** (a browser can't fetch the listserv feed
-  directly — no CORS headers), which is what the included GitHub Action is for.
+## What it does
 
-## 1. Deploy the site
+ISC Board is a read-only, unofficial companion to the AISWORLD mailing
+list. AISWORLD is high-volume and hard to skim by email — this project
+pulls the public feed, cleans it up, and presents it as a filterable
+board so you can jump straight to the calls for papers, conferences, jobs,
+or funding posts you care about.
 
-Push this folder to a GitHub repo, then point your static host at it,
-serving the `public/` folder as the site root:
+It does not host the mailing list, send email, or let anyone post — it
+only reads and re-presents what AISWORLD already publishes publicly.
 
-- **Any Git-connected static host** (Netlify, Vercel, Cloudflare Pages, or
-  lmu.build if it supports Git-based deploys): set the publish/output
-  directory to `public`, no build command needed — it's plain HTML/CSS/JS.
-- **GitHub Pages**: Settings → Pages → deploy from the `public` folder
-  (or a `gh-pages` branch built from it).
-- Any plain file host: just upload the contents of `public/` — `data.json`
-  lives alongside `index.html`.
+## How the pipeline works
 
-## 2. Automate daily updates
+**1. Fetching.** A script (`scripts/fetch-feed.mjs`) pulls the AISWORLD
+public RSS feed on a daily schedule (via a GitHub Action cron job) and
+rebuilds `public/data.json`, which the site reads.
 
-`.github/workflows/update.yml` runs on a daily cron (`0 12 * * *` UTC by
-default — edit that line to change the time), fetches the feed, rebuilds
-`public/data.json`, and commits it back to the repo.
+**2. Categorization ("Type" tags).** Each post's subject + description is
+checked against a set of keyword/regex rules in `config/categories.json`
+— e.g. "conference", "workshop", "tenure-track", "fellowship". Every rule
+that matches applies, so a post can be tagged with more than one Type
+(a call for a specific conference legitimately gets both). A post that
+matches nothing falls back to "General Discussion." A post with a
+recognized event acronym (see below) also automatically gets "Conference
+& Workshop," even if the body text never uses that word.
 
-If your host auto-redeploys on push (true for Netlify/Vercel/Cloudflare
-Pages/GitHub Pages by default), the live site updates automatically the
-next day — no manual step required.
+**3. Topic and Event tags.** Beyond Type, posts are tagged with subject
+matter (e.g. "AI & GenAI," "Cybersecurity & Privacy") and, when detectable,
+the specific event/venue acronym (e.g. "AMCIS," "HICSS"). These three tag
+groups — Type, Topic, Event — are independent facets: picking tags within
+a group is an OR (any match), across groups is an AND (must satisfy each
+group you've filtered on).
 
-To turn this on:
-1. Push this repo to GitHub.
-2. Go to the repo's **Settings → Actions → General** and make sure
-   "Read and write permissions" is enabled for the `GITHUB_TOKEN` (needed
-   so the workflow can commit `data.json` back).
-3. That's it — it'll run automatically on schedule. You can also trigger
-   it manually from the **Actions** tab (`Run workflow`).
+**4. De-duplication.** AISWORLD threads are often reposted verbatim over
+several weeks. The subject line is normalized (stripping "Re:"/"Fwd:" and
+punctuation) into a dedup key; posts sharing a key are merged into a
+single card, with every occurrence's date kept (shown as "posted 3×") and
+the link pointing at the most recent occurrence.
 
-## 3. Run it yourself / test locally
+**5. Retention.** Threads whose most recent post is older than 90 days
+are dropped from `data.json` to keep the board current (`RETENTION_DAYS`
+in `scripts/fetch-feed.mjs`).
 
-```bash
-npm install
-npm run fetch          # fetches the feed, writes public/data.json
-npx serve public       # or any static file server, then open the printed URL
-```
+Tuning any of this — adding a keyword, changing retention, adjusting
+dedup — only requires editing `config/categories.json` or the constants
+at the top of `fetch-feed.mjs`; no rebuild step beyond the daily cron.
 
-## Tuning categorization
+## Feedback
 
-Edit `config/categories.json`. Each rule lists keywords tested against the
-post's subject + description; the first rule with a match wins, in file
-order, with the empty-keyword rule (General Discussion) as the catch-all.
-No code changes needed — just add/remove keywords and re-run the fetch.
+Use the "Send feedback" link on the site, or the contact form in the
+footer — both go straight to me.
 
-## How de-duplication works
+## Setup & deploy
 
-Announcements are often re-posted verbatim over several weeks. The fetch
-script strips `Re:`/`Fwd:` prefixes and punctuation from the subject line
-to build a dedup key; posts sharing a key are merged into one thread, with
-each occurrence's date recorded (shown as "posted 3×" etc.) and the link
-pointing at the most recent occurrence. Threads whose most recent post is
-older than 60 days are pruned from `data.json` (tune `RETENTION_DAYS` in
-`scripts/fetch-feed.mjs`).
+- `public/` — the site itself; the only folder your host needs to serve.
+- `scripts/fetch-feed.mjs` — pulls the feed, tags, dedupes, and rewrites `public/data.json`. Runs server-side via the included GitHub Action (`.github/workflows/update.yml`, daily cron).
+- Deploy `public/` to GitHub Pages (or any static host); the Action commits fresh data and redeploys automatically.
+- Local test: `npm install && npm run fetch && npx serve public`.
