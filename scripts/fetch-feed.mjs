@@ -16,7 +16,7 @@ const FEED_URL = 'https://listserv.isworld.org/scripts/wa-ISWORLD.exe?RSS&L=AISW
 const DATA_PATH = new URL('../public/data.json', import.meta.url);
 const CATEGORIES_PATH = new URL('../config/categories.json', import.meta.url);
 const TOPICS_PATH = new URL('../config/topics.json', import.meta.url);
-const RETENTION_DAYS = 60; // drop threads whose most recent post is older than this
+const RETENTION_DAYS = 90; // drop threads whose most recent post is older than this
 
 function stripHtml(str = '') {
   return str.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
