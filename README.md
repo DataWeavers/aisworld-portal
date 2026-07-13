@@ -2,7 +2,7 @@
 
 ## About Me
 
-I'm Arvin Mesgari, an IS researcher and tech enthusiast who's been reading AISWORLD for years. My research sits at the intersection of online communities, sensemaking, and technology affordances, which is more or less what this project turned into.
+I'm Arvin Mesgari, an IS educator, researcher, and tech enthusiast who's been reading AISWORLD for years. My research sits at the intersection of online communities, sensemaking, and technology affordances, which is more or less what this project turned into.
 
 Like a lot of you, I love the AISWORLD list but also drown in it. Duplicates everywhere, and the good stuff gets buried fast. I kept craving an easier way to browse the content I actually care about. Then AI happened, and I figured I'd take a stab at it. It became a passion project and a fun excuse to see AI-assisted web dev in action.
 
