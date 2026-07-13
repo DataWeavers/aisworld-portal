@@ -1,10 +1,14 @@
 # About ISC Board
 
-## Who made this
+## About Me
 
-Arvin Mesgari — a short line about who you are and why you built this
-(e.g. an IS researcher/practitioner who wanted an easier way to scan the
-AISWORLD mailing list). Add a contact link if you'd like.
+I'm Arvin Mesgari, an IS researcher and tech enthusiast who's been reading AISWORLD for years. My research sits at the intersection of online communities, sensemaking, and technology affordances, which is more or less what this project turned into.
+
+Like a lot of you, I love the AISWORLD list but also drown in it. Duplicates everywhere, and the good stuff gets buried fast. I kept craving an easier way to browse the content I actually care about. Then AI happened, and I figured I'd take a stab at it. It became a passion project and a fun excuse to see AI-assisted web dev in action.
+
+This board is the result: a tagged, de-duplicated view of the list with just the bare bones of each post, plus links back to the original archive. It's not meant to replace or compete with the mailing list. My hope is that it makes the content easier to access and brings the list a broader audience of academics and practitioners.
+
+If you have feedback or ideas, send them my way through the website.
 
 ## What it does
 
