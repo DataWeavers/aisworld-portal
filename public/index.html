@@ -291,6 +291,8 @@
     const list = selected[groupKey];
     const has = list.includes(tag);
     selected[groupKey] = has ? list.filter(t => t !== tag) : list.concat([tag]);
+    // Record only newly-applied filters (not un-toggles), by facet + tag.
+    if (!has) track('filter/' + groupKey + '/' + tag, 'Filter: ' + tag);
     render();
   }
 
@@ -375,6 +377,8 @@
         a.href = m.url || 'https://listserv.isworld.org/scripts/wa-ISWORLD.exe?A0=AISWORLD';
         a.target = '_blank';
         a.rel = 'noopener';
+        // Record a post click-through by its primary type tag (not the title).
+        a.addEventListener('click', () => track('post-click/' + ((m.typeTags && m.typeTags[0]) || 'untagged'), 'Post click-through'));
 
         const top = document.createElement('div');
         top.className = 'item-top';
@@ -565,6 +569,9 @@
     document.getElementById('ask-thread').classList.add('show');
     addUserBubble(query);
     input.value = '';
+    // Record that a search happened + whether it's an initial or follow-up
+    // turn. Raw query text is intentionally NOT sent.
+    track('search/' + (convo.length === 0 ? 'initial' : 'followup'), 'AI search');
     const thinking = addAiBubble('<span class="ask-spinner"></span>Searching the board…');
 
     // Merge this query's matches into the running post set so follow-ups keep
@@ -619,10 +626,49 @@
     document.getElementById('ask-reset').addEventListener('click', resetConversation);
   }
 
+  // --- Interaction analytics (first-party, no cookies) -------------------
+  // Emits anonymous custom events to GoatCounter (itself cookieless). We
+  // record only aggregate signals — a filter's name, that a search happened,
+  // a post click-through — never personal data and never raw search text.
+  function track(path, title) {
+    try {
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: path, title: title || path, event: true });
+      }
+    } catch (e) { /* analytics must never break the page */ }
+  }
+
+  // First-party returning-visitor counter: a visit count + first-seen date in
+  // localStorage (this browser only, never sent anywhere except as an
+  // anonymous "new vs returning" event). No identity, no cookie banner needed.
+  function trackVisit() {
+    try {
+      const KEY = 'iscb_visits';
+      const raw = localStorage.getItem(KEY);
+      const now = Date.now();
+      let rec = raw ? JSON.parse(raw) : null;
+      if (!rec || !rec.firstSeen) {
+        rec = { firstSeen: now, count: 1 };
+        track('visit/new', 'First visit');
+      } else {
+        rec.count = (rec.count || 1) + 1;
+        // Bucket the return count so the dashboard stays readable.
+        const c = rec.count;
+        const bucket = c >= 10 ? '10+' : c >= 5 ? '5-9' : c >= 2 ? '2-4' : String(c);
+        track('visit/returning/' + bucket, 'Returning visit (' + bucket + ')');
+      }
+      localStorage.setItem(KEY, JSON.stringify(rec));
+    } catch (e) { /* private mode / storage disabled — skip silently */ }
+  }
+
   fetch('./data.json', { cache: 'no-store' })
     .then(r => r.json())
     .then(data => { DATA = data; render(); })
     .catch(() => { render(); });
+
+  // Fire visit analytics once GoatCounter has loaded (its script is async).
+  if (document.readyState === 'complete') setTimeout(trackVisit, 800);
+  else window.addEventListener('load', () => setTimeout(trackVisit, 800));
 </script>
 </body>
 </html>
