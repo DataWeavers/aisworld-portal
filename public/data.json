@@ -1,6 +1,48 @@
 {
-  "lastUpdated": "2026-07-22T04:39:35.151Z",
+  "lastUpdated": "2026-07-22T13:21:11.192Z",
   "messages": [
+    {
+      "key": "episode 109 from alert fatigue to agentic defense redesigning the human role in the ainative soc",
+      "subject": "Episode 109 | From Alert Fatigue to Agentic Defense: Redesigning the Human Role in the AI-Native SOC",
+      "sender": "Dave Chatterjee, Ph.D.",
+      "date": "2026-07-22T11:28:23.000Z",
+      "url": "https://listserv.isworld.org/scripts/wa-ISWORLD.exe?A2=AISWORLD;19b2503d.2607D",
+      "snippet": "Dear Colleagues: In this episode, Joshua Weinick&lt;https://www.linkedin.com/in/joshua-weinick/&gt;, AI Automation Engineer at Blink Ops, joins me to examine a question every security leader is now facing: what happens when the volume, velocity, and variety of cyber threats exceed what any human-staffed security operations center (SOC) can handle, and what role do humans play in a security function that increasingly depends on AI agents executing at machine speed? -- https://youtu.be/jqYuusnk2x4 [...]",
+      "typeTags": [
+        "General Discussion"
+      ],
+      "topicTags": [
+        "AI & GenAI",
+        "Cybersecurity & Privacy"
+      ],
+      "eventTags": [],
+      "reposts": [
+        "2026-07-22T11:28:23.000Z"
+      ]
+    },
+    {
+      "key": "amcis 2026 workshop invitation shaping the future of sustainable digital transformation through 6g research and innovation",
+      "subject": "AMCIS 2026 Workshop Invitation – Shaping the Future of Sustainable Digital Transformation through 6G Research and Innovation",
+      "sender": "Vishanth Weerakkody",
+      "date": "2026-07-22T10:31:55.000Z",
+      "url": "https://listserv.isworld.org/scripts/wa-ISWORLD.exe?A2=AISWORLD;f2368264.2607D",
+      "snippet": "Dear Colleagues If you are attending AMCIS 2026 and have an interest in 6G, next-generation digital technologies, AI, Edge Computing, digital transformation, sustainability, or digital governance, we would be delighted to invite you to join our specialist workshop: Shaping the Future of Sustainable Digital Transformation through 6G Research and Innovation (https://amcis2026.aisconferences.org/events/ancillary-meetings-and-workshops-details/) This interactive workshop will provide a unique opportunity to explore some of Europe's most ambitious and innovative research into the future of digital connectivity. The session will showcase three major European Commission Horizon Europe flagship projects, 6G-PATH, 6G-VERSUS, and COP-PILOT, representing a collaborative ecosystem of more than 75 partners [...]",
+      "reposts": [
+        "2026-07-08T13:42:45.000Z",
+        "2026-07-22T10:31:55.000Z"
+      ],
+      "typeTags": [
+        "Conference & Workshop"
+      ],
+      "topicTags": [
+        "AI & GenAI",
+        "Digital Transformation",
+        "Sustainability"
+      ],
+      "eventTags": [
+        "AMCIS"
+      ]
+    },
     {
       "key": "call for papers crisis 2026 rabat morocco extended deadline",
       "subject": "Call for Papers – CRiSIS 2026 (Rabat, Morocco) – Extended deadline",
@@ -1156,28 +1198,6 @@
         "Cybersecurity & Privacy"
       ],
       "eventTags": []
-    },
-    {
-      "key": "amcis 2026 workshop invitation shaping the future of sustainable digital transformation through 6g research and innovation",
-      "subject": "AMCIS 2026 Workshop Invitation – Shaping the Future of Sustainable Digital Transformation through 6G Research and Innovation",
-      "sender": "Vishanth Weerakkody",
-      "date": "2026-07-08T13:42:45.000Z",
-      "url": "https://listserv.isworld.org/scripts/wa-ISWORLD.exe?A2=AISWORLD;cffee589.2607B",
-      "snippet": "Dear Colleagues If you are attending AMCIS 2026 and have an interest in 6G, next-generation digital technologies, AI, Edge Computing, digital transformation, sustainability, or digital governance, we would be delighted to invite you to join our specialist workshop: Shaping the Future of Sustainable Digital Transformation through 6G Research and Innovation (https://amcis2026.aisconferences.org/events/ancillary-meetings-and-workshops-details/) This interactive workshop will provide a unique opportunity to explore some of Europe's most ambitious and innovative research into the future of digital connectivity. The session will showcase three major European Commission Horizon Europe flagship projects, 6G-PATH, 6G-VERSUS, and COP-PILOT, representing a collaborative ecosystem of more than 75 partners [...]",
-      "reposts": [
-        "2026-07-08T13:42:45.000Z"
-      ],
-      "typeTags": [
-        "Conference & Workshop"
-      ],
-      "topicTags": [
-        "AI & GenAI",
-        "Digital Transformation",
-        "Sustainability"
-      ],
-      "eventTags": [
-        "AMCIS"
-      ]
     },
     {
       "key": "episode 108 the invisible foundation why dns security is the governance gap no one is watching",
