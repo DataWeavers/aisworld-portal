@@ -1,6 +1,60 @@
 {
-  "lastUpdated": "2026-07-23T13:23:34.205Z",
+  "lastUpdated": "2026-07-23T17:33:44.769Z",
   "messages": [
+    {
+      "key": "participation online study understanding explanations of robot plans",
+      "subject": "[Participation] Online study: understanding explanations of robot plans",
+      "sender": "Amar Halilovic",
+      "date": "2026-07-23T15:20:06.000Z",
+      "url": "https://listserv.isworld.org/scripts/wa-ISWORLD.exe?A2=AISWORLD;f578f7e1.2607D",
+      "snippet": "Dear colleagues, We are looking for participants for a short online study on how people understand natural-language explanations of robot task plans. You will read three short robot plans, each with an explanation of what the robot did and why, and then answer a few multiple-choice questions and short questionnaires. It takes about 20–30 minutes, and no background in robotics or AI is needed - just curiosity. [...]",
+      "typeTags": [
+        "General Discussion"
+      ],
+      "topicTags": [
+        "AI & GenAI"
+      ],
+      "eventTags": [],
+      "reposts": [
+        "2026-07-23T15:20:06.000Z"
+      ]
+    },
+    {
+      "key": "momm 2026 submission deadline 1 august 2026 final bangkok thailand",
+      "subject": "MoMM 2026 || Submission Deadline: 1 August 2026 (Final) || Bangkok, Thailand",
+      "sender": "Hesti Sudjana",
+      "date": "2026-07-23T13:37:02.000Z",
+      "url": "https://listserv.isworld.org/scripts/wa-ISWORLD.exe?A2=AISWORLD;f4dd9e31.2607D",
+      "snippet": "The 24th International Conference on Advances in Mobile Computing and Multimedia Intelligence (MoMM2026) 07-09 December 2026 - Bangkok, Thailand email: momm2026@iiwas.org Paper submission: https://momm2026.iiwas.org Website: https://www.iiwas.org/conferences/momm2026/ &quot;Intelligent Mobile and Multimedia Solutions: Pioneering Ubiquitous Technologies for Social Impact&quot; **** Important Dates **** 1 August 2026 (FINAL): Paper Submission deadline; Full Papers (15 pages), Short Papers (6 pages) 05 September 2026: Acceptance Notifications 25 September 2026: Camera-Ready Papers and Authors Registration 07 - 09 December 2026: Conference Dates [...]",
+      "typeTags": [
+        "Conference & Workshop"
+      ],
+      "topicTags": [],
+      "eventTags": [
+        "MOMM"
+      ],
+      "reposts": [
+        "2026-07-23T13:37:02.000Z"
+      ]
+    },
+    {
+      "key": "iiwas 2026 submission deadline 1 august 2026 final bangkok thailand",
+      "subject": "iiWAS 2026 || Submission Deadline: 1 August 2026 (Final) || Bangkok, Thailand",
+      "sender": "Hesti Sudjana",
+      "date": "2026-07-23T13:33:57.000Z",
+      "url": "https://listserv.isworld.org/scripts/wa-ISWORLD.exe?A2=AISWORLD;12b598f2.2607D",
+      "snippet": "The 28th International Conference on Information Integration and Web Intelligence (iiWAS2026) &quot;From Data to Insight: Advancing Information Integration and Web Intelligence for Human-Centric Decision Making&quot; 07-09 December 2026, Bangkok, Thailand email: iiwas2026@iiwas.org Paper submission: https://iiwas2026.iiwas.org Website: https://www.iiwas.org/conferences/iiwas2026/ **** Important Dates **** 1 August 2026 (FINAL): paper submission deadline full papers (15 pages), short papers (6 pages) 05 September 2026: Acceptance Notifications 25 September 2026: Camera-Ready Papers and Authors Registration deadline 07 - 09 December 2026: Conference Dates [...]",
+      "typeTags": [
+        "Conference & Workshop"
+      ],
+      "topicTags": [],
+      "eventTags": [
+        "IIWAS"
+      ],
+      "reposts": [
+        "2026-07-23T13:33:57.000Z"
+      ]
+    },
     {
       "key": "final cfp isf 2026 brisbane australia 23 nov 2026 theorising is resilience paper deadline 31 july",
       "subject": "Final CfP: ISF 2026 (Brisbane, Australia, 2–3 Nov 2026) – Theorising IS Resilience (paper deadline 31 July)",
@@ -58,7 +112,9 @@
       "topicTags": [
         "AI & GenAI"
       ],
-      "eventTags": [],
+      "eventTags": [
+        "AOM"
+      ],
       "reposts": [
         "2026-07-22T20:19:19.000Z"
       ]
@@ -329,12 +385,14 @@
       "url": "https://listserv.isworld.org/scripts/wa-ISWORLD.exe?A2=AISWORLD;86bc08f8.2607C",
       "snippet": "Dear Colleagues, The call for nominations for the 2026 INFORMS Information Systems Society (ISS) Awards is now open! We invite nominations for the following awards: • ISS Distinguished Fellow Award • ISS Andrew B. Whinston Pathbreaking Research Award • ISS Sandy Slaughter Early Career Award • ISS Nunamaker–Chen Dissertation Award • ISS Gordon B. Davis Young Scholar Award • ISS Practical Impacts Award • ISS Teaching Innovation Award • ISS President's Service Award • ISS Social Justice Best Paper Award [...]",
       "typeTags": [
-        "General Discussion"
+        "Conference & Workshop"
       ],
       "topicTags": [
         "Education & Teaching"
       ],
-      "eventTags": [],
+      "eventTags": [
+        "INFORMS"
+      ],
       "reposts": [
         "2026-07-20T02:37:35.000Z"
       ]
@@ -964,7 +1022,9 @@
       "topicTags": [
         "Business & Enterprise"
       ],
-      "eventTags": [],
+      "eventTags": [
+        "EDOC"
+      ],
       "reposts": [
         "2026-06-27T06:26:52.000Z",
         "2026-07-11T19:39:43.000Z"
