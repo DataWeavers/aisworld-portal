@@ -97,6 +97,14 @@ const MONTH_WORDS = new Set([
   'oct', 'october', 'nov', 'november', 'dec', 'december',
 ]);
 
+// Known IS / management conference venue acronyms. These tag whenever they
+// appear as a standalone token in a subject, even with no year attached.
+const KNOWN_VENUES = [
+  'ICIS', 'AMCIS', 'ECIS', 'PACIS', 'HICSS', 'AOM', 'ACIS', 'MCIS', 'WHICEB',
+  'CONF-IRM', 'DESRIST', 'ICEB', 'WITS', 'INFORMS',
+  'ISSRE', 'ICSOC', 'CAISE', 'EDOC', 'RCIS',
+];
+
 function extractEventIdentifiers(subject = '') {
   const normalized = subject.replace(/[^a-zA-Z0-9]+/g, ' ');
   const re = /\b([a-zA-Z]{2,12})\s?(20\d{2})\b/g;
@@ -210,6 +218,16 @@ function extractVenueTags(subject) {
   while ((pm = preRe.exec(subject))) {
     const code = pm[1].toUpperCase();
     if (looksAcronymLike(pm[1]) && !ids.includes(code)) ids.push(code);
+  }
+  // Known IS / management venue acronyms tag whenever they appear as a
+  // standalone token in the subject, even with no year or ordinal attached
+  // (e.g. "(AOM PDW)", "ICIS panel"). Restricted to this whitelist so that
+  // ordinary ALLCAPS words don't become false venue tags.
+  const knownRe = new RegExp('\\b(' + KNOWN_VENUES.join('|') + ')\\b', 'g');
+  let km;
+  while ((km = knownRe.exec(subject))) {
+    const code = km[1].toUpperCase();
+    if (!ids.includes(code)) ids.push(code);
   }
   return ids;
 }
